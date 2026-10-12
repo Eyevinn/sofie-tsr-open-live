@@ -5,6 +5,8 @@
  * `TimelineContentMap`) so Sofie timeline objects can target Open Live.
  */
 
+import type { DeviceOptionsBase } from 'timeline-state-resolver-types'
+
 export const OpenLiveDeviceType = 'OPEN_LIVE' as const
 export type OpenLiveDeviceType = typeof OpenLiveDeviceType
 
@@ -199,5 +201,16 @@ export enum OpenLiveActions {
 declare module 'timeline-state-resolver-types' {
 	interface TimelineContentMap {
 		[OpenLiveDeviceType]: TimelineContentOpenLiveAny
+	}
+	interface DeviceOptionsMap {
+		[OpenLiveDeviceType]: DeviceOptionsBase<OpenLiveDeviceType, OpenLiveOptions>
+	}
+	interface TSRDeviceTypesMap {
+		[OpenLiveDeviceType]: {
+			Type: OpenLiveDeviceType
+			Options: OpenLiveOptions
+			Mappings: SomeMappingOpenLive
+			Actions: Record<OpenLiveActions, (payload: any) => Promise<any>>
+		}
 	}
 }
