@@ -1,0 +1,33 @@
+{
+	"default": "program",
+	"mappings": {
+		"program": { "type": "object", "properties": {}, "required": [], "additionalProperties": false },
+		"preview": { "type": "object", "properties": {}, "required": [], "additionalProperties": false },
+		"dsk": {
+			"type": "object",
+			"properties": { "layer": { "type": "integer", "ui:title": "DSK layer", "ui:summaryTitle": "DSK", "default": 0, "minimum": 0, "ui:zeroBased": true } },
+			"required": ["layer"],
+			"additionalProperties": false
+		},
+		"graphic": {
+			"type": "object",
+			"properties": { "overlayId": { "type": "string", "ui:title": "Overlay ID", "ui:summaryTitle": "Overlay", "default": "" } },
+			"required": ["overlayId"],
+			"additionalProperties": false
+		},
+		"audio": {
+			"type": "object",
+			"properties": { "elementId": { "type": "string", "ui:title": "Audio element (main, ch1, ...)", "ui:summaryTitle": "Audio", "default": "main" } },
+			"required": ["elementId"],
+			"additionalProperties": false
+		},
+		"clip": {
+			"type": "object",
+			"properties": { "mixerInput": { "type": "string", "ui:title": "Clip mixer input", "ui:summaryTitle": "Clip input", "default": "" } },
+			"required": ["mixerInput"],
+			"additionalProperties": false
+		},
+		"onAir": { "type": "object", "properties": {}, "required": [], "additionalProperties": false },
+		"ftb": { "type": "object", "properties": {}, "required": [], "additionalProperties": false }
+	}
+}
