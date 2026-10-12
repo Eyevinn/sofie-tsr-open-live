@@ -10,4 +10,7 @@ RUN npm run build && npm prune --omit=dev && rm -rf src scripts .git
 
 FROM ${GATEWAY_IMAGE}
 ENV TSR_PLUGIN_PATHS=/opt/sofie-tsr-open-live
+# The gateway has no inbound API; its health endpoint gives the platform a port to probe.
+ENV HEALTH_PORT=8080
+EXPOSE 8080
 COPY --from=build /opt/sofie-tsr-open-live /opt/sofie-tsr-open-live

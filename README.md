@@ -54,6 +54,26 @@ The `GATEWAY_IMAGE` build arg selects the upstream gateway. The default is
 `ghcr.io/sofie-automation/sofie-core-playout-gateway:v26.9.2`, which uses TSR 10.0.0, the
 same version as this plugin. The upstream image is amd64-only.
 
+### Running on OSC
+
+The image is a normal playout gateway. It needs no inbound port; it connects out to
+Sofie Core and to Open Live.
+
+| Env var | Value |
+|---|---|
+| `CORE_HOST` / `CORE_PORT` | Sofie Core. On OSC, use Core's cluster-internal endpoint (see `describe-service-instance`), which skips the OSC auth gateway. Core's public URL needs an OSC token that the gateway cannot send. |
+| `DEVICE_ID` / `DEVICE_TOKEN` | Any stable ID and secret. The gateway registers itself in Core; assign it to the studio in Sofie (Settings → Studio → Peripheral devices). |
+| `HEALTH_PORT` | `8080` (set in the image). `/healthz` and `/readyz`. |
+| `TSR_PLUGIN_PATHS` | Set in the image. |
+
+The Open Live device settings (URL, production ID, OSC token) are configured in Sofie, not
+here. With the Open Live blueprints, the URL and production ID come from the studio config
+and the operator adds the token in the device settings.
+
+Unverified: whether OSC Core (26.6.0 at the time of writing) accepts a v26.9.2 gateway, and
+whether the health endpoint stays up while Core is unreachable (the gateway exits if it
+cannot reach Core at startup).
+
 ## Blueprints
 
 Import the types and this package's `TimelineContentMap` augmentation comes with them:
