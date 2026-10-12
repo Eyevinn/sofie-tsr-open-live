@@ -12,8 +12,8 @@
 			"tsEnumNames": ["None", "ApiKey", "Osc"],
 			"default": "osc"
 		},
-		"apiKey": { "type": "string", "ui:title": "API key (self-hosted Open Live)", "ui:sensitive": true, "default": "" },
-		"oscPat": { "type": "string", "ui:title": "OSC Personal Access Token", "ui:sensitive": true, "default": "" },
+		"apiKey": { "type": "string", "ui:title": "API key (self-hosted Open Live)", "ui:description": "Leave empty and set OPEN_LIVE_API_KEY on the gateway instead; values here are written to the gateway log", "ui:sensitive": true, "default": "" },
+		"oscPat": { "type": "string", "ui:title": "OSC Personal Access Token", "ui:description": "Leave empty and set OPEN_LIVE_OSC_PAT on the gateway instead; values here are written to the gateway log", "ui:sensitive": true, "default": "" },
 		"oscServiceId": { "type": "string", "ui:title": "OSC service ID", "default": "eyevinn-open-live" },
 		"ackTimeoutMs": { "type": "integer", "ui:title": "ACK timeout (ms)", "default": 5000, "minimum": 100 },
 		"keepAliveIntervalMs": { "type": "integer", "ui:title": "Keep-alive interval (ms, 0 = off)", "default": 30000, "minimum": 0 }
