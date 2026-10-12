@@ -3,7 +3,7 @@
 	"title": "Open Live Options",
 	"type": "object",
 	"properties": {
-		"url": { "type": "string", "ui:title": "Open Live backend URL", "ui:description": "e.g. https://<tenant>-<name>.eyevinn-open-live.auto.prod-se.osaas.io", "default": "" },
+		"url": { "type": "string", "ui:title": "Open Live backend URL", "ui:description": "Full https address of the Open Live backend, for example magnus-mylive.eyevinn-open-live.auto.prod-se.osaas.io", "default": "" },
 		"productionId": { "type": "string", "ui:title": "Production ID", "default": "" },
 		"authMode": {
 			"type": "string",
